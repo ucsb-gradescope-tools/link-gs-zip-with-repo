@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+cd /autograder/github-repo
+git pull
+
+
