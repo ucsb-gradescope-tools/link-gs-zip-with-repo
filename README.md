@@ -4,21 +4,59 @@ Draft of a simple template for a Gradescope Autograded assignment that pulls its
 
 # Instructions
 
-1. Clone this repo
-2. Change the contents of repo.txt to be the URL of the repo you want to clone into your autograded assignment.
-3. Run `./make_autograder_zip`
-4. Use the generated `Autograder.zip` file as the thing you upload to Gradescope.
-5. Profit
+1. Prepare a repo that has the following in it:
+   * `apt-get.sh` with everything you need to install for your assignment
+   * `requirements.txt` (ONLY if it is a Python assignment and you have pip installs that
+       you need.)       
+2. Clone this repo
 
-# UNSOLVED PROBLEMS (But easy to fix)
+3. Change the contents of env.sh to point to the repo that is the basis of your autograded assignment.
 
-If this were a real autograded assignment, the repo would need to be a private one.   That means you need to figure out how the repo can use a public key/private key pair to clone and pull from your private repo.
+4. Run ./make_deploy_keys.sh to generate a public/private key pair.  You can
+   run this anywhere (e.g. on any system that has `ssh-keygen` and a Unix shell).
+   
+   * *private key:* `deploy_keys/deploy_key`
+   * *public key:* `deploy_keys/deploy_key.pub`
 
-That should be straightforward.
+   Note
+   that these two files are in the `.gitignore` and should generally
+   NOT be uploaded to a git repo.  The private key becomes part of the `Autograder.zip`
+   file, while the public key gets attached to the github repo as it's "deploy key":
+   
+5. Upload the public key as a the deploy key for your repo, following [these instructions](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 
-# REFERENCES you need to fix this:
+6. Run `./make_autograder_zip`
 
-1. Read this about github deploy keys:  <https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys>
+7. Use the generated `Autograder.zip` file as the thing you upload to Gradescope.
 
-2. Read this about setting that up on Gradescope: <https://gradescope-autograders.readthedocs.io/en/latest/git_pull/>
+8. For small changes, only update the github repo.
+
+9. For big changes, redo the `./make_autograder_zip` script, and reupload the `Autograder.zip` file.
+
+
+# REFERENCES 
+
+1. Read this to learn about github deploy keys:  <https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys>
+
+2. Read this to learn more about Gradescopes recommended process: <https://gradescope-autograders.readthedocs.io/en/latest/git_pull/>
+
+# Security considerations
+
+As far as I can tell, the `deploy_key` file in the [setup.sh file in the Gradescope Example](https://github.com/gradescope/autograder_samples/blob/master/deploy_keys/setup.sh) is actually the private key (e.g. `gs-repo-key`, or `cs32-s15-lab00-repo-key`) in the above example.
+
+The public key needs to be put in the repo here, following [these github.com instructions for deploy keys](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
+
+With those two steps in place, the example begins to make more sense.
+
+Note that while you *could* reuse the same `deploy_key`/`deploy_key.pub` pair over and over, that most definitely defeats the purpose.    The idea is that the `deploy_key` provides access to one, and only one repo, so that if it leaks, the security of at most one repo is breached.
+
+It would be a very bad idea, for example, to use the same deploy_key for all of the assignments in a particular course--then the leaking of that key compromises not just one assignment, but all of the assignments for that course.   Although it may be annoying, it is worth the hassle to generate a new one for each assignment.
+
+Further, it is probably a good idea to have the deploy_key in the .gitignore file for any repo that you make so that it never gets stored in git.
+
+You might keep it in the directory where you cloned the repo, and if you lose it, generate a new one (uploading it to a new copy of the `Autograder.zip` and updating the public key for the github repo.)
+
+
+
+
 

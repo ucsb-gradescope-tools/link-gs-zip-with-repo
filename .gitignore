@@ -1,3 +1,6 @@
+deploy_keys/
+deploy_key
+deploy_key.pub
 Autograder.zip
 *~
 
