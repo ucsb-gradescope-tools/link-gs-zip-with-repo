@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-
+BASE_DIR=/autograder/autograder_samples/python/src
 
 # Update autograder files
-
-mkdir -p $BASE_DIR
-
 cd /autograder/autograder_samples
 git pull
 
