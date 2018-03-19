@@ -2,7 +2,18 @@
 
 . env.sh
 
-cd /autograder/source
+# Extract just the git repo: https://serverfault.com/questions/417241/extract-repository-name-from-github-url-in-bash
+
+BASE_DIR=/autograder/git-repo
+WITHOUT_SUFFIX="${GIT_REPO%.*}"
+REPO_NAME="$(basename "${WITHOUT_SUFFIX}")"
+REPO_HOST="$(basename "${WITHOUT_SUFFIX%/${REPO_NAME}}")"
+
+echo \$BASE_DIR=$BASE_DIR
+echo \$GIT_REPO=$GIT_REPO
+#echo \$WITHOUT_SUFFIX=$WITHOUT_SUFFIX
+echo \$REPO_NAME=$REPO_NAME
+#echo \$REPO_HOST=$REPO_HOST
 
 mkdir -p /root/.ssh
 cp ssh_config /root/.ssh/config
