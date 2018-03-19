@@ -3,9 +3,14 @@
 # Update autograder files
 
 . /autograder/source/env.sh
+. /autograder/source/envVars.sh
 
-cd ${BASE_DIR}/${REPO_NAME}
+echo \$REPO_NAME=${REPO_NAME}
+pwd
+cd /autograder/git-repo/${REPO_NAME}
+pwd
 git pull origin master
+chmod u+x ./grade.sh
 ./grade.sh
 
 
