@@ -1,3 +1,7 @@
 Host github.com
   IdentityFile ~/.ssh/deploy_key
   IdentitiesOnly yes
+
+Host github.ucsb.edu
+  IdentityFile ~/.ssh/deploy_key
+  IdentitiesOnly yes

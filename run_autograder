@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
 
-
-
 # Update autograder files
 
-mkdir -p $BASE_DIR
+. /autograder/source/env.sh
 
-cd /autograder/autograder_samples
-git pull
+cd ${BASE_DIR}/${REPO_NAME}
+git pull origin master
+./grade.sh
 
-cp /autograder/submission/calculator.py $BASE_DIR/calculator.py
 
-pip install -r $BASE_DIR/requirements.txt
-
-cd $BASE_DIR
-
-python run_tests.py > /autograder/results/results.json
