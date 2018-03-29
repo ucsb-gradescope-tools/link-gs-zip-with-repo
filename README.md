@@ -6,6 +6,8 @@ Draft of a simple template for a Gradescope Autograded assignment that pulls its
 
 1. Prepare a repo that has the following in it:
    * `apt-get.sh` with everything you need to install for your assignment
+       * IF YOU MAKE CHANGES to the `apt-get.sh` you must redo the `./make-autograder_zip` step
+       
    * `requirements.txt` (ONLY if it is a Python assignment and you have pip installs that
        you need.)
    * `grade.sh` with the command/commands that should run to produce the results.json file.
