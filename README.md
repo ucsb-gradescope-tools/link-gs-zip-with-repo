@@ -7,7 +7,14 @@ Draft of a simple template for a Gradescope Autograded assignment that pulls its
 1. Prepare a repo that has the following in it:
    * `apt-get.sh` with everything you need to install for your assignment
    * `requirements.txt` (ONLY if it is a Python assignment and you have pip installs that
-       you need.)       
+       you need.)
+   * `grade.sh` with the command/commands that should run to produce the results.json file.
+
+      - What that `grade.sh` looks like will differ depending on which programming language you are using, and whether
+         you are doing diff-based testing or unit testing.
+      - See other documentation for each specific programming language and testing mode for specifics.
+       
+
 2. Clone this repo
 
 3. Change the contents of env.sh to point to the repo that is the basis of your autograded assignment.
@@ -23,7 +30,7 @@ Draft of a simple template for a Gradescope Autograded assignment that pulls its
    NOT be uploaded to a git repo.  The private key becomes part of the `Autograder.zip`
    file, while the public key gets attached to the github repo as it's "deploy key":
    
-5. Upload the public key as a the deploy key for your repo, following [these instructions](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
+5. Upload the public key (`deploy_keys/deploy_key.pub`) as the deploy key for your assignment specific github repo, following [these instructions](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
 
 6. Run `./make_autograder_zip`
 

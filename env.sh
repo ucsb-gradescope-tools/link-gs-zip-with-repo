@@ -1,4 +1,5 @@
 #!/bin/sh
 
-GIT_REPO=git@github.ucsb.edu:CS32-S15/cs32-s15-lab00-gradescope.git
+GIT_REPO=git@github.com:ucsb-cs8-s18/PRIVATE-cs8-s18-lab00.git
+
 
