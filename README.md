@@ -17,7 +17,13 @@ Draft of a simple template for a Gradescope Autograded assignment that pulls its
 
 2. Clone this repo
 
-3. Change the contents of env.sh to point to the repo that is the basis of your autograded assignment.
+3. Change the contents of `env.sh` so that the environment variable `GIT_REPO` points to the ssh url for your autograded assignment (the repo that has `grade.sh`, `apt-get.sh` and `requirements.txt` in it, plus your assignments starter code and test cases.)
+
+   ```bash
+   #!/bin/sh
+   GIT_REPO=git@github.com:ucsb-cs8-s18/PRIVATE-cs8-s18-lab00.git
+   ```
+
 
 4. Run ./make_deploy_keys.sh to generate a public/private key pair.  You can
    run this anywhere (e.g. on any system that has `ssh-keygen` and a Unix shell).
