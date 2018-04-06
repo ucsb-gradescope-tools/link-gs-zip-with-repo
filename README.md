@@ -15,6 +15,8 @@ The only times you would need to regenerate the autograder.zip are when:
 2. If you have so many changes to so many files that the `git pull` is slowing down the grading.  In that case, 
    regenerating the autograder.zip file is not strictly necessary, but may improve performance.
 
+But, for simple changes, such as changing a test case, fixing a bug in the starter code, etc., you can simply change the code in the private repo for the assignment, push the change to github, and then the autograder just starts using your new version immediately.   Nice!
+
 # Instructions
 
 1. Prepare a repo that has the following in it:
