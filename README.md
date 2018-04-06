@@ -1,6 +1,19 @@
 # gradescope-simple-template-draft
 
-Draft of a simple template for a Gradescope Autograded assignment that pulls its info from a github repo.
+Collection of scripts that helps you
+* generate an autograder.zip file for gradescope, 
+* that is connected to a private github repo, so that
+* so that, you don't have to upload the autograder.zip file more than once.
+
+That is: if you are making minor changes to your assignment, you do NOT need to update the autograder.zip file on Gradescope.  You only update your private repo.
+
+It works, because the scripts are set up to do a "git pull" from your private repo before each student's submission is graded.
+
+The only times you would need to regenerate the autograder.zip are when:
+
+1. If you change the packages you are installing in the `apt-get.sh` script.
+2. If you have so many changes to so many files that the `git pull` is slowing down the grading.  In that case, 
+   regenerating the autograder.zip file is not strictly necessary, but may improve performance.
 
 # Instructions
 
