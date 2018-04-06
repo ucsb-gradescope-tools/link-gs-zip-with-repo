@@ -17,6 +17,8 @@ The only times you would need to regenerate the autograder.zip are when:
 
 But, for simple changes, such as changing a test case, fixing a bug in the starter code, etc., you can simply change the code in the private repo for the assignment, push the change to github, and then the autograder just starts using your new version immediately.   Nice!
 
+This whole thing is simply a way of automating and simplifying the process described [here](https://gradescope-autograders.readthedocs.io/en/latest/git_pull/) in Gradescope's own documentation.  If you want to get down and dirty under the hood, read that.  If you just want it to work with minimum effort, read on.
+
 # Instructions
 
 1. Prepare a repo that has the following in it:
