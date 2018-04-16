@@ -1,4 +1,4 @@
-# gradescope-simple-template-draft
+# https://github.com/ucsb-gradescope-tools/link-gs-zip-with-repo
 
 Collection of scripts that helps you
 * generate an autograder.zip file for gradescope, 
@@ -76,7 +76,7 @@ This whole thing is simply a way of automating and simplifying the process descr
 
 As far as I can tell, the `deploy_key` file in the [setup.sh file in the Gradescope Example](https://github.com/gradescope/autograder_samples/blob/master/deploy_keys/setup.sh) is actually the private key (e.g. `gs-repo-key`, or `cs32-s15-lab00-repo-key`) in the above example.
 
-The public key needs to be put in the repo here, following [these github.com instructions for deploy keys](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
+The public key needs to be uploaded to the [github.com](https://github.com) or [github.ucsb.edu](http://github.ucsb.edu) website for the repo following [these github.com instructions for deploy keys](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).   By uploading the public key to the git provider, and having the private key in the Autograder.zip file, you ensure that when the Autograder runs, it has access to the private repo containing the specifications of the programming assignment.
 
 With those two steps in place, the example begins to make more sense.
 
@@ -87,6 +87,33 @@ It would be a very bad idea, for example, to use the same deploy_key for all of 
 Further, it is probably a good idea to have the deploy_key in the .gitignore file for any repo that you make so that it never gets stored in git.
 
 You might keep it in the directory where you cloned the repo, and if you lose it, generate a new one (uploading it to a new copy of the `Autograder.zip` and updating the public key for the github repo.)
+
+# Considerations when running untrusted student code
+
+An important security consideration is to minimize the exposure of any private information to untrusted student code.
+
+Student code, when running, has access to the full Docker container.
+For this reason, it is advisable to at least do a visual spot check of
+all student submission to look for anything suspicious.  At a minimum,
+you want to be able to know if student code is attempting to access
+files that it should not.
+
+Some examples of things you would not want the student code to access that you might need to have in the Docker container:
+* The deploy key for pulling from the repo.  It may be advisable to delete this after pulling from the repo, but before running the student code. *TODO: Add this to the scripts*
+* Source code for a reference solution.  If you are using this to produce reference output, you may want to produce this output, and delete the reference solution before running the student code. *TODO: Add this to the scripts*
+* The reference output itself.  This one is tougher.  You need the reference output *after* the student solution is run.  So, you have three choices:
+   * Generate it after the student solution is run (but then you need the reference solution available&mdash;not good)
+   * Pull it in after the student solution (but then you need a deploy key available&mdash;also not good)
+   * Have it available while the student solution is running (but take reasonable precautions to avoid unauthorized access)
+
+Our approach (which is a work in progress) will be the third approach.
+
+
+
+*TODO: Add this to the scripts*
+   
+
+
 
 
 
