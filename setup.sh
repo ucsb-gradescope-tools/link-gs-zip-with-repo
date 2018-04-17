@@ -20,7 +20,7 @@ ssh-keyscan -t rsa github.ucsb.edu >> ~/.ssh/known_hosts
 mkdir -p ${BASE_DIR}/${REPO_NAME}
 git clone ${GIT_REPO} ${BASE_DIR}/${REPO_NAME}
 
-if [-f ${BASE_DIR}/${REPO_NAME}/MAKE-DIFF-REFERENCE-OUTPUT.sh ]; then
+if [-f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
     echo "Installing software for submit.cs transition diff-based testing"
     DIFF_STUFF=https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git
     mkdir -p ${BASE_DIR}/${REPO_NAME}/${DIFF_STUFF}
