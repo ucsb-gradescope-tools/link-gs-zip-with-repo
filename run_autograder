@@ -10,6 +10,20 @@ pwd
 cd /autograder/git-repo/${REPO_NAME}
 pwd
 git pull origin master
+
+rm -rf deploy_keys
+
+if [ -f MAKE-DIFFS-REFERENCE-OUTPUT.sh ]; then
+    echo "Running ./MAKE-DIFF-REFERENCE-OUTPUT.sh"
+    chmod u+x ./MAKE-DIFF-REFERENCE-OUTPUT.sh
+    ./MAKE-DIFF-REFERENCE-OUTPUT.sh
+fi
+
+if [ -d REFERENCE-SOLUTION ]; then
+   echo "Removing REFERENCE_SOLUTION from container"
+   rm -rf REFERENCE-SOLUTION
+fi
+
 chmod u+x ./grade.sh
 ./grade.sh
 
