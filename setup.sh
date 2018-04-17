@@ -25,6 +25,7 @@ if [-f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
     DIFF_STUFF=https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git
     mkdir -p ${BASE_DIR}/${REPO_NAME}/${DIFF_STUFF}
     git clone ${DIFF_STUFF} ${BASE_DIR}/${REPO_NAME}/${DIFF_STUFF}
+    apt-get install -y python3 python3-pip python3-dev
     pip3 install jsonschema
 fi
 
