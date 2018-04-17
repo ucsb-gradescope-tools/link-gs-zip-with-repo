@@ -22,11 +22,11 @@ git clone ${GIT_REPO} ${BASE_DIR}/${REPO_NAME}
 
 if [ -f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
     echo "Installing software for submit.cs transition diff-based testing"
-    DIFF_STUFF=https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git
-    mkdir -p ${BASE_DIR}/${REPO_NAME}/${DIFF_STUFF}
-    git clone ${DIFF_STUFF} ${BASE_DIR}/${REPO_NAME}/${DIFF_STUFF}
+    mkdir -p ${BASE_DIR}/${REPO_NAME}/gs-diff-based-testing
+    git clone https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git  ${BASE_DIR}/${REPO_NAME}/gs-diff-based-testing
     apt-get install -y python3 python3-pip python3-dev
     pip3 install jsonschema
+    pip3 install pytest
 fi
 
 # If there is an apt-get.sh file in the repo, install what is needed
