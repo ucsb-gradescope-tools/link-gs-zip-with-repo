@@ -34,7 +34,7 @@ This whole thing is simply a way of automating and simplifying the process descr
       - See other documentation for each specific programming language and testing mode for specifics.
        
 
-2. Clone this repo
+2. Clone this repo (link-gs-zip-with-repo)
 
 3. Change the contents of `env.sh` so that the environment variable `GIT_REPO` points to the ssh url for your autograded assignment (the repo that has `grade.sh`, `apt-get.sh` and `requirements.txt` in it, plus your assignments starter code and test cases.)
 
