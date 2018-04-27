@@ -10,6 +10,8 @@ cp /autograder/source/ssh_config /root/.ssh/config
 
 cp /autograder/source/deploy_keys/deploy_key /root/.ssh/deploy_key
 
+chmod 600 /root/.ssh/deploy_key
+
 # To prevent host key verification errors at runtime
 
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
