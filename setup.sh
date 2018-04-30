@@ -6,6 +6,12 @@
 mkdir -p /root/.ssh
 cp /autograder/source/ssh_config /root/.ssh/config
 
+
+apt-get install -y python3 python3-pip python3-dev
+pip3 install jsonschema
+pip3 install pytest
+
+
 # Make sure to include your private key here
 
 cp /autograder/source/deploy_keys/deploy_key /root/.ssh/deploy_key
@@ -26,9 +32,6 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
     echo "Installing software for submit.cs transition diff-based testing"
     mkdir -p ${BASE_DIR}/${REPO_NAME}/gs-diff-based-testing
     git clone https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git  ${BASE_DIR}/${REPO_NAME}/gs-diff-based-testing
-    apt-get install -y python3 python3-pip python3-dev
-    pip3 install jsonschema
-    pip3 install pytest
 fi
 
 # If there is an apt-get.sh file in the repo, install what is needed
