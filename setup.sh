@@ -34,6 +34,15 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
     git clone https://github.com/ucsb-gradescope-tools/gs-diff-based-testing.git  ${BASE_DIR}/${REPO_NAME}/gs-diff-based-testing
 fi
 
+if [ -f ${BASE_DIR}/${REPO_NAME}/setup.sh ]; then
+    echo "Installing Linux requirements from ${GIT_REPO}/apt-get.sh"
+    chmod u+x ${BASE_DIR}/${REPO_NAME}/apt-get.sh
+    ${BASE_DIR}/${REPO_NAME}/setup.sh
+else
+    echo "No setup.sh found in repo ${REPO_NAME}"
+fi
+
+
 # If there is an apt-get.sh file in the repo, install what is needed
 
 if [ -f ${BASE_DIR}/${REPO_NAME}/apt-get.sh ]; then
@@ -41,7 +50,7 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/apt-get.sh ]; then
     chmod u+x ${BASE_DIR}/${REPO_NAME}/apt-get.sh
     ${BASE_DIR}/${REPO_NAME}/apt-get.sh
 else
-    echo "No apt-get.sh found in repo"
+    echo "No apt-get.sh found in repo ${REPO_NAME}"
 fi
 
 # If there is a requirements.txt file in the repo, Install python dependencies
@@ -50,7 +59,7 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/requirements.txt ]; then
     echo "Installing Python requirements from ${GIT_REPO}/requirements.txt"
     pip install -r ${BASE_DIR}/${REPO_NAME}/requirements.txt
 else
-    echo "No requirements.txt found in repo"
+    echo "No requirements.txt found in repo ${REPO_NAME}"
 fi
 
 # If there is a requirements3.txt file in the repo, install python3 dependencies
@@ -59,7 +68,7 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/requirements3.txt ]; then
     echo "Installing Python3 requirements from ${GIT_REPO}/requirements.txt"
     pip3 install -r ${BASE_DIR}/${REPO_NAME}/requirements3.txt
 else
-    echo "No requirements3.txt found in repo"
+    echo "No requirements3.txt found in repo ${REPO_NAME}"
 fi
 
 
