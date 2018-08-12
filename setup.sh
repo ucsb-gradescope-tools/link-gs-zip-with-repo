@@ -35,8 +35,8 @@ if [ -f ${BASE_DIR}/${REPO_NAME}/MAKE-REFERENCE.sh ]; then
 fi
 
 if [ -f ${BASE_DIR}/${REPO_NAME}/setup.sh ]; then
-    echo "Installing Linux requirements from ${GIT_REPO}/apt-get.sh"
-    chmod u+x ${BASE_DIR}/${REPO_NAME}/apt-get.sh
+    echo "Installing Linux requirements from ${GIT_REPO}/setup.sh"
+    chmod u+x ${BASE_DIR}/${REPO_NAME}/setup.sh
     ${BASE_DIR}/${REPO_NAME}/setup.sh
 else
     echo "No setup.sh found in repo ${REPO_NAME}"
