@@ -28,9 +28,7 @@ if [ -f ./run_autograder ]; then
     echo "Running ./run_autograder from ${REPO_NAME}"
     chmod u+x ./run_autograder
     ./run_autograder
-fi
-
-if [ -f ./grade.sh ]; then
+elif [ -f ./grade.sh ]; then
     echo "Running ./grade.sh from ${REPO_NAME}"
     chmod u+x ./grade.sh
     ./grade.sh
