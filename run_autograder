@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "NEW VERSION FROM SUMMER 2018"
+
+
 # Update autograder files
 
 . /autograder/source/env.sh
