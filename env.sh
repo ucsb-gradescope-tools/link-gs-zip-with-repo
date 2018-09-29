@@ -1,5 +1,6 @@
 #!/bin/sh
 
-GIT_REPO=git@github.com:ucsb-cs16-w18/PRIVATE-cs16-s18-mirza-lab03-gs.git
+GIT_REPO=git@github.com:ucsb-cs56-m18/PRIVATE-cs56-m18-lab02-gs.git
+
 
 
