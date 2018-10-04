@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GIT_REPO=git@github.com:ucsb-gradescope-tools/gradescope-autograder-samples-java-mvn.git
+GIT_REPO=git@github.com:ucsb-cs16-s18-mirza/PRIVATE-INT5-lab01-gs.git
 
 
 
