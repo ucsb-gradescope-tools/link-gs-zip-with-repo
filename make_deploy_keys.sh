@@ -3,6 +3,7 @@
 . env.sh
 
 KEYS_URL=${GIT_REPO/git@github.com:/https://github.com/}
+KEYS_URL=${KEYS_URL/git@github.ucsb.edu:/https://github.ucsb.edu/}
 KEYS_URL=${KEYS_URL/.git//settings/keys}
 
 echo GIT_REPO=${GIT_REPO}

@@ -1,6 +1,9 @@
 #!/bin/sh
 
-GIT_REPO=git@github.com:ucsb-cs56-m18/PRIVATE-cs56-m18-lab02-gs.git
+GIT_REPO=git@github.ucsb.edu:cs24-f18/lab01-gs-setup.git
+
+
+
 
 
 
