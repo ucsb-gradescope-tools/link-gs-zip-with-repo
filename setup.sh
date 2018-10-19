@@ -6,7 +6,8 @@
 mkdir -p /root/.ssh
 cp /autograder/source/ssh_config /root/.ssh/config
 
-
+apt-get -y update
+apt-get -y install rsync
 apt-get install -y python3 python3-pip python3-dev
 pip3 install jsonschema
 pip3 install pytest
